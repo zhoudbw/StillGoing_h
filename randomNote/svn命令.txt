@@ -1,0 +1,38 @@
+
+-- 切新分支 --
+svn copy [URL] [URL] -m "Branch/tag message"
+
+svn copy svn://192.168.1.55/st/program/branch/iterlong_town svn://192.168.1.55/st/program/branch/buff_bet -m "creating a new branch -- buff bet"
+
+-- 拉取新分支 --
+svn checkout svn://192.168.1.55/st/program/branch/iter_Review
+
+-- 更新分支 --
+svn update -r m path
+
+svn update如果后面没有目录，默认将当前目录以及子目录下的所有文件都更新到最新版本。
+svn update -r 200 test.php(将版本库中的文件test.php还原到版本200)
+svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)
+
+-- 删除分支 --
+svn delete svn://192.168.1.55/st/program/branch/buff_bet -m "Removing feature branch"
+
+7月15日 20:28-- 合并分支 --
+svn merge svn://192.168.1.55/st/program/branch/iterlong_town
+svn commit -m "Merging iterlong_town"
+
+-- 提交需要检查的文件 --
+build.info
+package-lock.json
+TC_Font_SDF.asset
+SkeletonGraphicDefault.mat
+
+
+svn merge svn://192.168.1.55/st/program/branch/CollectStamsV2_town
+svn commit -m "Merging svn merge CollectStamsV2_town"
+
+svn copy svn://192.168.1.55/st/program/branch/iterlong_town svn://192.168.1.55/st/program/branch/CollectStamsV2_town -m "creating a new branch -- CollectStamsV2_town"
+
+svn checkout svn://192.168.1.55/st/program/branch/CollectStamsV2_town
+
+svn copy svn://192.168.1.55/st/program/branch/iterlong_town svn://192.168.1.55/st/program/branch/GuildRequestCard_town -m "creating a new branch -- GuildRequestCard_town"
