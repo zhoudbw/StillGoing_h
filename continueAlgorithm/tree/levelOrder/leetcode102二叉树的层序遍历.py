@@ -29,16 +29,14 @@ class Solution(object):
     def levelOrderRec(self, root ):
         everyLevelValueList = []
         if root:
-            def rec( node, depth ):
-                if node is None:
-                    return
-                if len( everyLevelValueList ) == depth:
-                    everyLevelValueList.append( [] )
-                    
-                everyLevelValueList[ depth ].append( node.val )
-                rec( node.left, depth + 1 )
-                rec( node.right, depth + 1 )
-            rec( root, 0 )
+            def dfs( iNode, iDepth ):
+                if iNode is None: return
+                if iDepth == len( everyLevelValueList ): everyLevelValueList.append( [] )
+
+                everyLevelValueList[ iDepth ].append( iNode.val )
+                dfs( iNode.left, iDepth + 1 )
+                dfs( iNode.right, iDepth + 1 )
+            dfs( root, 0 )
         return everyLevelValueList
                 
                 
