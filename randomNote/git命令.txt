@@ -38,3 +38,7 @@
 
 
 -- 常用命令 --
+git status     查看待提交文件列表
+git restore --staged < 文件名 >    从待提交文件列表中移除
+git commit -m '提交说明'   提交
+git push  推送至远程
