@@ -6,7 +6,9 @@
 #         self.right = right
 from algorithm.tree.TreeNode import TreeNode
 
-
+"""
+构造树一般采用的是前序遍历，因为先构造中间节点，然后递归构造左子树和右子树。
+"""
 class Solution( object ):
     def buildTree( self, inorder, postorder ):
         """
