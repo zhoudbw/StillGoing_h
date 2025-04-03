@@ -8,7 +8,7 @@ class Solution( object ):
         --  *每件物品只能用一次*, 求解将哪些物品装入背包里物品价值总和最大?
     """
 
-    def backpack01( self, w, n, weights, values ):
+    def knapsack01( self, w, n, weights, values ):
         """
         1. 确定dp数组,以及下标含义.
             显然,最大价值受物品和背包容量的影响,需要使用二维数组,需要有两个维度分别表示物品和背包容量; 
@@ -50,7 +50,7 @@ class Solution( object ):
         return dp[ n - 1 ][ w ]
 
 
-    def backpack01( self, w, n, weights, values ):
+    def knapsack01( self, w, n, weights, values ):
         """
             对于背包问题其实状态都是可以压缩的:
                 在使用二维数组的时候,递推公式：dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
@@ -90,4 +90,4 @@ if __name__ == '__main__':
     mN = 3
     mWeights = [ 1, 3, 4 ]
     mValues = [ 15, 20, 30 ]
-    print( Solution().backpack01( mW, mN, mWeights, mValues ) )
+    print( Solution().knapsack01( mW, mN, mWeights, mValues ) )
