@@ -26,6 +26,7 @@ def completeKnapsack( w, n, weights, values ):
     dp = [ [ 0 ] * ( w + 1 ) for _ in range( n ) ]
     
     # -- dp数组初始化:
+    # -- 二维数组的最上行 和 最左列一定要初始化,这是递推公式推导的基础
     # --    1. 根据递推公式i-1行需要初始化( 即i=0需要初始化 ),由于物品有无限个,所以最大价值为w能够装下的最多物品数*价值
     # -- 再看递推公式,可以看出dp[i][j] 是由上方和左方数值推导出来了,那么其他下标初始为任意数值都可以因为都会被覆盖,无需特别初始化
     # for i in range( weights[ 0 ], w + 1 ): dp[ 0 ][ i ] = ( i // weights[ 0 ] ) * values[ 0 ]
@@ -63,6 +64,11 @@ def completeKnapsack( w, n, weights, values ):
         for k in range( 0, w + 1 ):
             if k - weights[ i ] >= 0: dp[ k ] = max( dp[ k ], dp[ k - weights[ i ] ] + values[ i ] )
     return dp[ w ]
+
+
+"""
+    -- 注: 先遍历物品 or 先遍历重量均可
+"""
         
 
 
