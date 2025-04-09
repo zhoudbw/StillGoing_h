@@ -41,9 +41,8 @@ class Solution( object ):
                 # -- 优化 --
                 if dp[ k - coins[ i ] ] < inf:
                     dp[ k ] = min( dp[ k ], dp[ k - coins[ i ] ] + 1 )
-                    
-        if dp[ w ] == inf: return -1
-        else: return dp[ w ]
+
+        return dp[ w ] if dp[ w ] < inf else -1
 
 
 if __name__ == '__main__':
