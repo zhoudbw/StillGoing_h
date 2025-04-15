@@ -76,4 +76,6 @@ class Solution( object ):
             dp[ 3 ] = max( dp[ 3 ], dp[ 2 ] - prices[ i ] )
             dp[ 4 ] = max( dp[ 4 ], dp[ 3 ] + prices[ i ] )
 
+        # -- 很浅显的:最大的时候一定是卖出的状态,而两次卖出的状态现金最大一定是最后一次卖出 --
+        # -- 所以直接返回最后位置对应值即可 --
         return dp[ 4 ]
